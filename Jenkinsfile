@@ -1,11 +1,13 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'hello word'
-            }
-        }
+  agent any
+  tools {
+    maven 'M3'
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'mvn clean'
+      }
     }
+  }
 }

@@ -1,11 +1,8 @@
-pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        echo 'hello word'
-        mvn clean install
-      }
-    }
+node {
+  stage ('Build') {
+    git url: 'https://github.com/raina564/SampleProject'
+    withMaven {
+      sh "mvn clean istall"
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
   }
 }
